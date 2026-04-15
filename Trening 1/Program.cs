@@ -19,10 +19,25 @@ class Program
         if (losowa != zgadywana)
         {
             Console.WriteLine("Nie zgadłeś! zostały ci jeszcze 2 próby");
+            if (zgadywana > losowa)
+            {
+               Console.WriteLine("Podana liczba jest za duża!");
+            } else
+            {
+                Console.WriteLine("Podana liczba jest za mała!");
+            }
             zgadywana = int.Parse(Console.ReadLine());
             if (losowa != zgadywana)
             {
                 Console.WriteLine("Błąd! została ci ostatnia próba!");
+                if (zgadywana > losowa)
+                {
+                    Console.WriteLine("Podana liczba jest za duża!");
+                }
+                else
+                {
+                    Console.WriteLine("Podana liczba jest za mała!");
+                }
                 zgadywana = int.Parse(Console.ReadLine());
             }
             
