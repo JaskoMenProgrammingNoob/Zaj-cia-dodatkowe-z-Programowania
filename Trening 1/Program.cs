@@ -14,11 +14,6 @@ class Program
             {
                 Console.Write("Zgadnij liczbę z zakresu od 1 do 10: ");
                 zgadywana = int.Parse(Console.ReadLine());
-                if (zgadywana != losowa)
-                {
-                    int pozostalo = 3 - proba;
-                    Console.WriteLine($"Nie zgadłeś! Spróbuj ponownie!. Pozostało ci {pozostalo - 1} próby");
-                }
                 if (zgadywana < 1 || zgadywana > 10)
                 {
                     Console.WriteLine("To nie ten zakres!");
@@ -36,6 +31,11 @@ class Program
                     {
                         Console.WriteLine("Za mało!");
                     }
+                }
+                if (zgadywana != losowa)
+                {
+                    int pozostalo = 3 - proba;
+                    Console.WriteLine($"Nie zgadłeś! Spróbuj ponownie!. Pozostało ci {pozostalo} próby");
                 }
 
             }
