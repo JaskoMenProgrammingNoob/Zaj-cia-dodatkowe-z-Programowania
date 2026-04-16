@@ -1,47 +1,44 @@
 ﻿using System;
-using System.Net.Http.Headers;
-using System.Security.Authentication.ExtendedProtection;
-using System.Security.Cryptography;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Random random = new Random();
-        int losowa = random.Next(1, 11);
-        Console.WriteLine("Podaj liczbę od 1 do 10");
-        int zgadywana = int.Parse(Console.ReadLine());
-        if (zgadywana < 1 || zgadywana > 10)
+
         {
-            Console.WriteLine("To nie ten zakres liczb!");
-            return;
-        }
-        if (losowa != zgadywana)
-        {
-            Console.WriteLine("Nie zgadłeś! zostały ci jeszcze 2 próby");
-            if (zgadywana > losowa)
+            Random random = new Random();
+            int losowa = random.Next(1, 11);
+            int zgadywana = 0;
+            int proba = 0;
+            while (proba < 3 && zgadywana != losowa)
             {
-               Console.WriteLine("Podana liczba jest za duża!");
-            } else
-            {
-                Console.WriteLine("Podana liczba jest za mała!");
-            }
-            zgadywana = int.Parse(Console.ReadLine());
-            if (losowa != zgadywana)
-            {
-                Console.WriteLine("Błąd! została ci ostatnia próba!");
-                if (zgadywana > losowa)
+                Console.Write("Zgadnij liczbę z zakresu od 1 do 10: ");
+                zgadywana = int.Parse(Console.ReadLine());
+                if (zgadywana != losowa)
                 {
-                    Console.WriteLine("Podana liczba jest za duża!");
+                    int pozostalo = 3 - proba;
+                    Console.WriteLine($"Nie zgadłeś! Spróbuj ponownie!. Pozostało ci {pozostalo - 1} próby");
+                }
+                if (zgadywana < 1 || zgadywana > 10)
+                {
+                    Console.WriteLine("To nie ten zakres!");
+                    continue;
                 }
                 else
                 {
-                    Console.WriteLine("Podana liczba jest za mała!");
+                    proba++;
+                    
+                    if (zgadywana > losowa)
+                    {
+                        Console.WriteLine("Za dużo!");
+                    }
+                    else if (zgadywana < losowa)
+                    {
+                        Console.WriteLine("Za mało!");
+                    }
                 }
-                zgadywana = int.Parse(Console.ReadLine());
+
             }
-            
-        } 
             switch (losowa == zgadywana)
             {
                 case true:
@@ -54,11 +51,47 @@ class Program
                         Console.WriteLine("Nie zgadłeś! Liczba, o którą chodziło to: " + losowa);
                     }
                     break;
-
             }
-       
+        }
     }
 }
+                    
+
+
+                
+                    
+                    
+
+
+
+             
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+
+
+
+
 
 
 
