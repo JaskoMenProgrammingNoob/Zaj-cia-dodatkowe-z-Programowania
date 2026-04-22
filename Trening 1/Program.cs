@@ -10,6 +10,7 @@ class Program
             int losowa = random.Next(1, 11);
             int zgadywana = 0;
             int proba = 0;
+            int pozostalo = 0;
             while (proba < 3 && zgadywana != losowa)
             {
                 Console.Write("Zgadnij liczbę z zakresu od 1 do 10: ");
@@ -22,7 +23,7 @@ class Program
                 else
                 {
                     proba++;
-                    
+
                     if (zgadywana > losowa)
                     {
                         Console.WriteLine("Za dużo!");
@@ -34,23 +35,23 @@ class Program
                 }
                 if (zgadywana != losowa)
                 {
-                    int pozostalo = 3 - proba;
-                    Console.WriteLine($"Nie zgadłeś! Spróbuj ponownie!. Pozostało ci {pozostalo} próby");
+
+                    pozostalo = 3 - proba;
+                    if (pozostalo > 0)
+                    {
+                        Console.WriteLine($"Nie zgadłeś! Spróbuj ponownie!. Pozostało ci {pozostalo} próby");
+                    }
+                        
+                } 
+
+                if (pozostalo == 0)
+                {
+                    Console.WriteLine($"Nie zgadłeś! Liczba, o którą chodziło to: {losowa}");
+                } else if (zgadywana == losowa)
+                {
+                    Console.WriteLine("Zgadłeś!");
                 }
 
-            }
-            switch (losowa == zgadywana)
-            {
-                case true:
-                    {
-                        Console.WriteLine("Zgadłeś!");
-                    }
-                    break;
-                case false:
-                    {
-                        Console.WriteLine("Nie zgadłeś! Liczba, o którą chodziło to: " + losowa);
-                    }
-                    break;
             }
         }
     }
@@ -59,6 +60,8 @@ class Program
 
 
                 
+              
+               
                     
                     
 
